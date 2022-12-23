@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Styling.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="../JS/Scripting.js"></script>
+</head>
+<body>
+    <div class="container">
+
+        <section class="Menu-board">
+            <div class="row buttons">
+                <button id="btnDraw" class="Menu">Draw</button>
+                <button id="btnEdit" class="Menu">Edit</button>
+                <button id="btnText" class="Menu">Text</button>
+            </div>
+        </section>
+
+        <section class="drawing-board" >
+            <label class="title">Drawing</label>
+            <div class="row">
+                <ul class="options">
+                    <li class="option">
+                        <img src="../icons/rectangle.svg" alt="">
+                        <span>Rectangle</span>
+                    </li>
+                    <li class="option">
+                        <img src="../icons/circle.svg" alt="">
+                        <span>Circle</span>
+                    </li> 
+                    <li class="option">
+                        <img src="../icons/triangle.svg" alt="">
+                        <span>Triangle</span>
+                    </li>  
+                    <li class="option">
+                        <input type="checkbox" id="fill-color">
+                        <label for="fill-color">Fill Color</label>
+                    </li>  
+                </ul>
+            </div>
+            <div class="row">
+                <label class="title">Options</label>
+                <ul class="options">
+                    <li class="option active">
+                        <img src="../icons/brush.svg" alt="">
+                        <span>Brush</span>
+                    </li>
+                    <li class="option">
+                        <img src="../icons/eraser.svg" alt="">
+                        <span>Eraser</span>
+                    </li> 
+                    <li class="option">
+                        <input type="range" id="size-slider">
+                        
+                    </li>  
+                </ul>
+            </div>
+            <div class="row colors">
+                <label class="title">Colors</label>
+                <ul class="options">
+                    <li class="option"></li>
+                    <li class="option selected"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option">
+                        <input type="color" id="color-picker" value="#4A98F7">
+                    </li>
+                </ul>
+            </div>
+            <div class="row buttons">
+                <button class="clear-canvas">Clear</button>
+                <button class="save-img">Save As Img</button>
+            </div>
+        </section>
+        <section class="image-board" >
+            <label class="title">Filters</label>
+            <div class="row slider">
+                <div>
+                    <div class="filter-info">
+                        <p class="name">Brigtness</p>
+                        <p class="value">100%</p>
+                    </div>
+                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                </div>
+                <div>
+                    <div class="filter-info">
+                        <p class="name">Saturation</p>
+                        <p class="value">100%</p>
+                    </div>
+                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                </div>
+                <div>
+                    <div class="filter-info">
+                        <p class="name">Inversion</p>
+                        <p class="value">100%</p>
+                    </div>
+                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                </div>
+                <div>
+                    <div class="filter-info">
+                        <p class="name">Grayscale</p>
+                        <p class="value">100%</p>
+                    </div>
+                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                </div>
+                <div>
+                    <div class="filter-info">
+                        <p class="name">Blur</p>
+                        <p class="value">100%</p>
+                    </div>
+                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                </div>
+                <div>
+                    <div class="filter-info">
+                        <p class="name">Sepia</p>
+                        <p class="value">100%</p>
+                    </div>
+                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                </div>
+            </div>
+            <div class="row buttons">
+                <button class="clear-canvas">Original</button>
+                <button class="clear-canvas">Flip</button>
+                <button class="clear-canvas">Rotate</button>
+            </div>
+        </section>
+        <section class="text-board" >
+            <label class="title">Text Editor</label>
+            <div class="row">
+                <label class="title">Options</label>
+                <ul class="options">
+                    <li class="option">
+                        <input type="checkbox" id="italic">
+                        <label for="italic">Italic</label>
+                    </li>  
+                    <li class="option">
+                        <input type="checkbox" id="bold">
+                        <label for="bold">Bold</label>
+                    </li>  
+                    <li class="option">
+                        <input type="checkbox" id="underline">
+                        <label for="underline">Under Line</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="row slider">
+                    <div>
+                        <div class="filter-info">
+                            <p class="name">Font Size</p>
+                            <p class="value">100%</p>
+                        </div>
+                        <input class="slider-range" type="range" value="100" min="0" max="200">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row colors">
+                    <label class="title">Font Color</label>
+                    <ul class="options">
+                        <li class="option"></li>
+                        <li class="option selected"></li>
+                        <li class="option"></li>
+                        <li class="option"></li>
+                        <li class="option">
+                            <input type="color" id="color-picker" value="#4A98F7">
+                        </li>
+                    </ul>
+                </div>
+                <div class="row colors">
+                    <label class="title">Background Color</label>
+                    <ul class="options">
+                        <li class="option"></li>
+                        <li class="option selected"></li>
+                        <li class="option"></li>
+                        <li class="option"></li>
+                        <li class="option">
+                            <input type="color" id="color-picker" value="#4A98F7">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row buttons">
+                <button class="clear-canvas">Clear</button>
+                <button class="clear-canvas">Original</button>
+            </div>
+        </section>
+        <section class="main-board">
+            <canvas></canvas>
+        </section>
+    </div>
+</body>
+</html>
