@@ -4,11 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../CSS/Styling.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Photshop Project</title>
+    
+    <!--Style All Pages-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <link rel="stylesheet" href="../CSS/Styling.css">
+    <link rel="stylesheet" href="../CSS/ImageEditor.css">
+
+    <!--Add script to all pages-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../JS/Scripting.js"></script>
+    
 </head>
 <body>
     <div class="container">
@@ -77,58 +86,49 @@
                 <button class="save-img">Save As Img</button>
             </div>
         </section>
+
+        <!--Image Editor-->
         <section class="image-board" >
-            <label class="title">Filters</label>
-            <div class="row slider">
-                <div>
-                    <div class="filter-info">
-                        <p class="name">Brigtness</p>
-                        <p class="value">100%</p>
+                <div class="editor-panel">
+                    <div class ="filter">
+                        <label class="title">Filters</label>
+                        <div class="options">
+                            <button id="Brightness" class="active">Brightness</button>
+                            <button id="Saturation">Saturation</button>
+                            <button id="Inversion">Inversion</button>
+                            <button id="Grayscale">Grayscale</button>
+                            <button id="sepia">Sepia</button>
+                            <button id="Contrast"> Contrast</button>
+                        </div>
+                        <div class="slider">
+                            <div class="filter-info">
+                                <p class="name">Brightness</p>
+                                <p class="value">100%</p>
+                            </div>
+                            <input type="range" value="50" min="0" max="200">
+                        </div>
                     </div>
-                    <input class="slider-range" type="range" value="100" min="0" max="200">
+                    <div class="rotate">
+                        <label class="title">Rotate & Flip</label>
+                        <div class="options">
+                            <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
+                            <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
+                            <button id="vertical"><i class="bx bx-reflect-vertical"></i></button>
+                            <button id="horizontal"><i class="bx bx-reflect-horizontal"></i></button>
+                        </div>
                 </div>
-                <div>
-                    <div class="filter-info">
-                        <p class="name">Saturation</p>
-                        <p class="value">100%</p>
+
+                <div class="Controls">
+                    <button class="reset-filters">Reset Filters</button>
+                    <div class="row">
+                        <input type="file" class="file-input" accept="image/*" hidden>
+                        <button class="choose-img">Choose Image</button>        
                     </div>
-                    <input class="slider-range" type="range" value="100" min="0" max="200">
                 </div>
-                <div>
-                    <div class="filter-info">
-                        <p class="name">Inversion</p>
-                        <p class="value">100%</p>
-                    </div>
-                    <input class="slider-range" type="range" value="100" min="0" max="200">
-                </div>
-                <div>
-                    <div class="filter-info">
-                        <p class="name">Grayscale</p>
-                        <p class="value">100%</p>
-                    </div>
-                    <input class="slider-range" type="range" value="100" min="0" max="200">
-                </div>
-                <div>
-                    <div class="filter-info">
-                        <p class="name">Blur</p>
-                        <p class="value">100%</p>
-                    </div>
-                    <input class="slider-range" type="range" value="100" min="0" max="200">
-                </div>
-                <div>
-                    <div class="filter-info">
-                        <p class="name">Sepia</p>
-                        <p class="value">100%</p>
-                    </div>
-                    <input class="slider-range" type="range" value="100" min="0" max="200">
-                </div>
-            </div>
-            <div class="row buttons">
-                <button class="clear-canvas">Original</button>
-                <button class="clear-canvas">Flip</button>
-                <button class="clear-canvas">Rotate</button>
-            </div>
+    
         </section>
+        <!--Ending of Image Editor-->
+        
         <section class="text-board" >
             <label class="title">Text Editor</label>
             <div class="row">
@@ -194,5 +194,7 @@
             <canvas></canvas>
         </section>
     </div>
+    <script src="../JS/ImageEditor.js"></script>
+
 </body>
 </html>
