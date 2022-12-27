@@ -21,11 +21,10 @@ body{
 }
 .container{
     display: flex;
-    height: 90%;
+    height: 100%;
     width: 100%;
-    max-width: 1050px;  
     gap: 10px;
-    pad: 10px;
+    padding: 2rem;
 }
 
 section{
@@ -52,6 +51,7 @@ section{
 .main-board{
     display: flex;
     flex: 1px;
+    width: 100%;
 }
 
 .main-board canvas{
