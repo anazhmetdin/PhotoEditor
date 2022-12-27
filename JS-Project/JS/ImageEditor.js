@@ -11,7 +11,9 @@ var applyFilter = function(){
 }
 
 input_file = $(".file-input")[0];
-previewImg = document.querySelector(".preview-img img");
+previewImg = $("#preview-img")[0];
+layers = $('#layers');
+canvas = $('canvas');
 choose_img = $(".choose-img");
 filter_options = $(".filter button");
 filter_name = $(".filter-info .name");
@@ -19,15 +21,24 @@ filter_value = $(".filter-info .value");
 rotate_options = $(".rotate button");
 filter_slider = $(".slider input");
 
-console.log("bbbbbbbbb")
 var loadimage = function() {
     var file = input_file.files[0]; // getting user selected file
     if(!file) return; // return if user hasn't selected file
     previewImg.src = URL.createObjectURL(file); // passing file url as preview img src
+
+    // observe image size change -> image is loaded, then styled
+    const imageResizeObserver = new ResizeObserver(function() {
+        // update parent size
+        layers.css('width', previewImg.width);
+        layers.css('height', previewImg.height);
+    });
+
     //previewImg.width="300px";
-    previewImg.height="100";
+    //previewImg.height="100";
     previewImg.addEventListener("load", function(){
         document.querySelector(".container").classList.remove("disable");
+        // apply observer after image is loaded -> wait for css to be applied
+        imageResizeObserver.observe(previewImg);
     });
 }
 
