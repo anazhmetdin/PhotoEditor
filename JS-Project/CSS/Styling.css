@@ -239,7 +239,9 @@ section{
 
 .text-board{
     width: 210px;
-    padding: 15px 22px 0;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .text-board .row{
@@ -260,7 +262,7 @@ section{
     margin-bottom: 1px;
 }
 
-
+/* 
 .option #italic{
     height: 14px;
     width: 14px;
@@ -286,7 +288,8 @@ section{
 }
 #underline:checked ~ label{
     color: #4A98F7;
-  } 
+  }
+  */
 
   /* #btnDraw,#btnEdit,#btnText{
     border: none;
