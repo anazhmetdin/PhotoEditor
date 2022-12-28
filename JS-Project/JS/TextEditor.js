@@ -84,19 +84,48 @@ $(function() {
         
         // make sure text is within the box
         limitTextToBox();
-    })
+    });
+    
     
     // unselect text when canvas or non_text layer is clicked without a text being hovered
-    $('.non_textLayer, #layers').click(function() {
-        if (!!selectedText && $('.text:hover').length === 0) {
-            getSelectedLayer().removeClass('active_layer');
-            selectedText.removeClass('selected_text');
-            selectedText = null;
+    $('.non_textLayer, #layers').mousedown(function(event) {
+        if (!event.target.classList.contains('text')) {
+            // get all elemets beneath mouse
+            var pointedElements = document.elementsFromPoint(event.clientX, event.clientY);
+            // is the selectedText beneath mouse
+            var withSelected = false;
+            // search in all targeted elements
+            pointedElements.map(function(element) {
+                // if the selected text is found
+                if (element.classList.contains('text')) {
+        
+                    withSelected = true;
+        
+                    // create new event with current mouse position
+                    const e = $.Event('mousedown', {
+                        'clientX' : event.clientX, 
+                        'clientY' : event.clientY
+                    });
+                    
+                    // dispatch event on the selected text
+                    $(element).trigger(e);
+                    return;
+                }
+            });
+
+            if (!withSelected && !!selectedText) {
+                getSelectedLayer().removeClass('active_layer');
+                selectedText.removeClass('selected_text');
+                selectedText = null;
+            }
         }
+
     });
     
     // event handler to select text on mouse down
     function selectingText(event) {
+
+        if (currentSection != 3) {return;}
     
         if (!!selectedText) {
             // if the clicked text is the selected text
