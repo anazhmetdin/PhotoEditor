@@ -53,7 +53,6 @@ section{
     flex-direction: column;
     flex: 1px;
     width: 100%;
-    border: 2px solid #6C757D;
 }
 
 .main-board canvas{
@@ -212,8 +211,8 @@ section{
     min-width: 210px;
     width: fit-content;
     overflow-y: scroll;
-    border: 2px solid #6C757D;
     position: relative;
+    flex: 1;
 }
 
 #navbar {
@@ -347,4 +346,10 @@ section{
 .Menu:hover{
     color: #fff;
     background: #6C757D;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
