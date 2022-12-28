@@ -128,10 +128,6 @@
         
                         <div class="Controls">
                             <button class="reset-filters">Reset Filters</button>
-                            <div class="row">
-                                <input type="file" class="file-input" accept="image/*" hidden>
-                                <button class="choose-img">Choose Image</button>        
-                            </div>
                         </div>
             
                 </section>
@@ -185,7 +181,7 @@
                                 <img src="../icons/text/font-color.png">
                             </span>
                         </label>
-                        <input type="color" class="textStyleInput text-color" id="color" name="color" >
+                        <input type="color" class="textStyleInput text-color" id="color" name="color" value="#000000">
         
                         <!-- background color -->
                         <label class="textIcon" for="background-color">
@@ -193,7 +189,7 @@
                                 <img src="../icons/text/bg-color.png">
                             </span>
                         </label>
-                        <input type="color" class="textStyleInput text-color" id="background-color" name="background-color">
+                        <input type="color" class="textStyleInput text-color" id="background-color" name="background-color" value="#ffffff">
         
                         <!-- background alpha channel -->
                         <span class="hovertext" data-hover="Background Transparency">
@@ -372,8 +368,9 @@
                 <canvas></canvas>
             </div>
             <div id="submitbuttons" class="row buttonsx custm_align">
-                <button class="Menu">Upload</button>
-                <button class="Menu">Reset</button>
+                <input type="file" class="file-input" accept="image/*" hidden> 
+                <button class="choose-img Menu">Upload Image</button>
+                <button class="Menu">New Canvas</button>
                 <button class="Menu">Save</button>
             </div>
         </section>
