@@ -7,6 +7,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* Default Styling  */
 html {
     height: 100%;
 }
@@ -47,7 +48,7 @@ section{
     height: auto;
     max-height: 100%;
 }
-
+/* Main Board [Section]  */
 .main-board{
     display: flex;
     flex-direction: column;
@@ -63,6 +64,7 @@ section{
     left: 0;
 }
 
+/* Drawing Board [Section]  */
 .drawing-board{
     width: 210px;
     padding: 15px 22px 0;
@@ -207,7 +209,7 @@ section{
     object-fit: contain;
   }
 
-/* Our New Section Menu-Board  */
+/* Menu Board [Section]  */
 .Menu-board{
     min-width: 210px;
     width: fit-content;
@@ -237,7 +239,7 @@ section{
     background: #6C757D;
 }
 
-/* Our Three Boards - Drawing - Image - text   */
+/*  Image Editor Board [Section]  */
 .image-board{
     width: 210px;
     padding: 15px 22px 0;
@@ -248,6 +250,7 @@ section{
     margin: 10px 0 0 5px;
 }
 
+/* Text Editor Board [Section] */
 .text-board{
     width: 210px;
     padding: 15px;
@@ -260,7 +263,7 @@ section{
     margin: 10px 0 0 5px;
 }
 
-/* Test New Styling For Image In Text Editor  */
+/* Styling For Image In Text Editor  */
 
 
 .slider .filter-info{
@@ -273,42 +276,9 @@ section{
     margin-bottom: 1px;
 }
 
-/* 
-.option #italic{
-    height: 14px;
-    width: 14px;
-    cursor: pointer;
-}
-#italic:checked ~ label{
-    color: #4A98F7;
-  } 
 
-  .option #bold{
-    height: 14px;
-    width: 14px;
-    cursor: pointer;
-}
-#bold:checked ~ label{
-    color: #4A98F7;
-  } 
 
-  .option #underline{
-    height: 14px;
-    width: 14px;
-    cursor: pointer;
-}
-#underline:checked ~ label{
-    color: #4A98F7;
-  }
-  */
-
-  /* #btnDraw,#btnEdit,#btnText{
-    border: none;
-  } */
-
-  
-
-  /* Ending Div  */
+  /* Submit Buttons Styling  */
   .buttonsx button{
     width: 100%;
     color: #fff;
@@ -344,10 +314,6 @@ section{
     color: #6C757D;
     border: 1px solid #6C757D;
     transition: all 0.3s ease;
-}
-.Menu:hover{
-    color: #fff;
-    background: #6C757D;
 }
 
 #sidebar {
