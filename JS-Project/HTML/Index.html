@@ -26,338 +26,345 @@
     <div class="container">
 
         <section class="Menu-board">
-            <div class="row buttons">
-                <button id="btnDraw" class="Menu">Draw</button>
-                <button id="btnEdit" class="Menu">Edit</button>
-                <button id="btnText" class="Menu">Text</button>
-            </div>
-        </section>
 
-        <section class="drawing-board" >
-            <label class="title">Drawing</label>
-            <div class="row">
-                <ul class="options">
-                    <li class="option">
-                        <img src="../icons/rectangle.svg" alt="">
-                        <span>Rectangle</span>
-                    </li>
-                    <li class="option">
-                        <img src="../icons/circle.svg" alt="">
-                        <span>Circle</span>
-                    </li> 
-                    <li class="option">
-                        <img src="../icons/triangle.svg" alt="">
-                        <span>Triangle</span>
-                    </li>  
-                    <li class="option">
-                        <input type="checkbox" id="fill-color">
-                        <label for="fill-color">Fill Color</label>
-                    </li>  
-                </ul>
-            </div>
-            <div class="row">
-                <label class="title">Options</label>
-                <ul class="options">
-                    <li class="option active">
-                        <img src="../icons/brush.svg" alt="">
-                        <span>Brush</span>
-                    </li>
-                    <li class="option">
-                        <img src="../icons/eraser.svg" alt="">
-                        <span>Eraser</span>
-                    </li> 
-                    <li class="option">
-                        <input type="range" id="size-slider">
-                        
-                    </li>  
-                </ul>
-            </div>
-            <div class="row colors">
-                <label class="title">Colors</label>
-                <ul class="options">
-                    <li class="option"></li>
-                    <li class="option selected"></li>
-                    <li class="option"></li>
-                    <li class="option"></li>
-                    <li class="option">
-                        <input type="color" id="color-picker" value="#4A98F7">
-                    </li>
-                </ul>
-            </div>
-            <div class="row buttons">
-                <button class="clear-canvas">Clear</button>
-                <button class="save-img">Save As Img</button>
-            </div>
-        </section>
+            <div id="navbar" class="row buttons">
+                <input type="radio" id="drawCheckbox" name="menu" hidden>
+                <label for="drawCheckbox" id="btnDraw" class="Menu">Draw</label>
 
-        <!--Image Editor-->
-        <section class="image-board" >
-                <div class="editor-panel">
-                    <div class ="filter">
-                        <label class="title">Filters</label>
-                        <div class="options">
-                            <button id="Brightness" class="active">Brightness</button>
-                            <button id="Saturation">Saturation</button>
-                            <button id="Inversion">Inversion</button>
-                            <button id="Grayscale">Grayscale</button>
-                            <button id="sepia">Sepia</button>
-                            <button id="Contrast"> Contrast</button>
-                        </div>
-                        <div class="slider">
-                            <div class="filter-info">
-                                <p class="name">Brightness</p>
-                                <p class="value">100%</p>
+                <input type="radio" id="editCheckbox" name="menu" hidden>
+                <label for="editCheckbox" id="btnEdit" class="Menu">Edit</label>
+
+                <input type="radio" id="textCheckbox" name="menu" hidden>
+                <label for="textCheckbox" id="btnText" class="Menu">Text</label>
+            </div>
+
+            <section class="drawing-board" >
+                <label class="title">Drawing</label>
+                <div class="row">
+                    <ul class="options">
+                        <li class="option">
+                            <img src="../icons/rectangle.svg" alt="">
+                            <span>Rectangle</span>
+                        </li>
+                        <li class="option">
+                            <img src="../icons/circle.svg" alt="">
+                            <span>Circle</span>
+                        </li> 
+                        <li class="option">
+                            <img src="../icons/triangle.svg" alt="">
+                            <span>Triangle</span>
+                        </li>  
+                        <li class="option">
+                            <input type="checkbox" id="fill-color">
+                            <label for="fill-color">Fill Color</label>
+                        </li>  
+                    </ul>
+                </div>
+                <div class="row">
+                    <label class="title">Options</label>
+                    <ul class="options">
+                        <li class="option active">
+                            <img src="../icons/brush.svg" alt="">
+                            <span>Brush</span>
+                        </li>
+                        <li class="option">
+                            <img src="../icons/eraser.svg" alt="">
+                            <span>Eraser</span>
+                        </li> 
+                        <li class="option">
+                            <input type="range" id="size-slider">
+                            
+                        </li>  
+                    </ul>
+                </div>
+                <div class="row colors">
+                    <label class="title">Colors</label>
+                    <ul class="options">
+                        <li class="option"></li>
+                        <li class="option selected"></li>
+                        <li class="option"></li>
+                        <li class="option"></li>
+                        <li class="option">
+                            <input type="color" id="color-picker" value="#4A98F7">
+                        </li>
+                    </ul>
+                </div>
+                <div class="row buttons">
+                    <button class="clear-canvas">Clear</button>
+                    <button class="save-img">Save As Img</button>
+                </div>
+            </section>
+    
+            <!--Image Editor-->
+            <section class="image-board" >
+                    <div class="editor-panel">
+                        <div class ="filter">
+                            <label class="title">Filters</label>
+                            <div class="options">
+                                <button id="Brightness" class="active">Brightness</button>
+                                <button id="Saturation">Saturation</button>
+                                <button id="Inversion">Inversion</button>
+                                <button id="Grayscale">Grayscale</button>
+                                <button id="sepia">Sepia</button>
+                                <button id="Contrast"> Contrast</button>
                             </div>
-                            <input type="range" value="50" min="0" max="200">
+                            <div class="slider">
+                                <div class="filter-info">
+                                    <p class="name">Brightness</p>
+                                    <p class="value">100%</p>
+                                </div>
+                                <input type="range" value="50" min="0" max="200">
+                            </div>
+                        </div>
+                        <div class="rotate">
+                            <label class="title">Rotate & Flip</label>
+                            <div class="options">
+                                <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
+                                <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
+                                <button id="vertical"><i class="bx bx-reflect-vertical"></i></button>
+                                <button id="horizontal"><i class="bx bx-reflect-horizontal"></i></button>
+                            </div>
+                    </div>
+    
+                    <div class="Controls">
+                        <button class="reset-filters">Reset Filters</button>
+                        <div class="row">
+                            <input type="file" class="file-input" accept="image/*" hidden>
+                            <button class="choose-img">Choose Image</button>        
                         </div>
                     </div>
-                    <div class="rotate">
-                        <label class="title">Rotate & Flip</label>
-                        <div class="options">
-                            <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
-                            <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
-                            <button id="vertical"><i class="bx bx-reflect-vertical"></i></button>
-                            <button id="horizontal"><i class="bx bx-reflect-horizontal"></i></button>
-                        </div>
+        
+            </section>
+            <!--Ending of Image Editor-->
+            
+            <!-- TEXT EDITOR -->
+            <section class="text-board" >
+                <label class="title">Text Editor</label>
+                
+                <div class="text-buttons">
+                    <!-- font family -->
+                    <span class="hovertext" id="font-family-span" data-hover="Font Family">
+                        <select name="font-family" id="font-family">
+                            <option disabled>Font Family</option>
+                            <optgroup label="Serif">
+                                <option value="Times New Roman">Times New Roman</option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Garamond">Garamond</option>
+                            </optgroup>
+                            <optgroup label="Sans-serif">
+                                <option value="Arial" selected>Arial</option>
+                                <option value="Verdana">Verdana</option>
+                                <option value="Helvetica">Helvetica</option>
+                            </optgroup>
+                            <optgroup label="Monospace">
+                                <option value="Courier New">Courier New</option>
+                                <option value="Lucida Console">Lucida Console</option>
+                                <option value="Monaco">Monaco</option>
+                            </optgroup>
+                            <optgroup label="Cursive">
+                                <option value="Brush Script MT">Brush Script MT</option>
+                                <option value="Lucida Handwriting">Lucida Handwriting</option>
+                            </optgroup>
+                            <optgroup label="Fantasy">
+                                <option value="Copperplate">Copperplate</option>
+                                <option value="Papyrus">Papyrus</option>
+                            </optgroup>
+                        </select>
+                    </span>
+                    
+                    <!-- font size -->
+                    <span class="hovertextRight" id="font-size-span" data-hover="Font Size">
+                        <input type="number" class="pixels" id="font-size" name="font-size" value="16">
+                    </span>
                 </div>
-
-                <div class="Controls">
-                    <button class="reset-filters">Reset Filters</button>
-                    <div class="row">
-                        <input type="file" class="file-input" accept="image/*" hidden>
-                        <button class="choose-img">Choose Image</button>        
+    
+                <div  class="text-buttons">
+                    <!-- font color -->
+                    <label class="textIcon" for="color">
+                        <span class="hovertext" data-hover="Font Color">
+                            <img src="../icons/text/font-color.png">
+                        </span>
+                    </label>
+                    <input type="color" class="textStyleInput text-color" id="color" name="color" >
+    
+                    <!-- background color -->
+                    <label class="textIcon" for="background-color">
+                        <span class="hovertext" data-hover="Background Color">
+                            <img src="../icons/text/bg-color.png">
+                        </span>
+                    </label>
+                    <input type="color" class="textStyleInput text-color" id="background-color" name="background-color">
+    
+                    <!-- background alpha channel -->
+                    <span class="hovertext" data-hover="Background Transparency">
+                        <input type="range" id="background-color-alpha" value="0" min="0" max="255">
+                    </span>
+                </div>
+    
+                <div class="text-inner-partition">
+                    <div class="text-buttons">
+                        <!-- bold -->
+                        <input class="textStyleInput" id="bold" type="checkbox" name='font-weight' value="bold" >
+                        <label class="textIcon textStyle" for="bold">
+                            <span class="hovertext" data-hover="Bold">
+                                <b>B</b>
+                            </span>
+                        </label>
+                        
+                        <!-- italic -->
+                        <input class="textStyleInput" id="italic" type="checkbox" name="font-style" value="italic" >
+                        <label class="textIcon textStyle" for="italic">
+                            <span class="hovertext" data-hover="Italic">
+                                <i>I</i>
+                            </span>
+                        </label>
+                        
+                        <!-- underline -->
+                        <input class="textStyleInput" id="underline" type="checkbox"  name="text-decoration" value="underline" >
+                        <label class="textIcon textStyle" for="underline">
+                            <span class="hovertext" data-hover="Underline">
+                                <u>U</u>
+                            </span>
+                        </label>
+                    </div>
+    
+                    <div class="text-buttons">
+                        <!-- direction ltr -->
+                        <input type="checkbox" name="direction" class="textStyleInput textAlignInput" id="ltr" value="ltr"  checked>
+                        <label class="textIcon textStyle" for="ltr">
+                            <span class="hovertextRight" data-hover="Left To Right">
+                                <img src="../icons/text/ltr.png">
+                            </span>
+                        </label>
+                        
+                        <!-- direction rtl -->
+                        <input type="checkbox" name="direction" class="textStyleInput textAlignInput" id="rtl" value="rtl" >
+                        <label class="textIcon textStyle" for="rtl">
+                            <span class="hovertextRight" data-hover="Right To Left">
+                                <img src="../icons/text/rtl.png">
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="text-inner-partition">
+                    <div class="text-buttons">
+                        <!-- left align -->
+                        <input class="textAlignInput textStyleInput" id="leftAlign" type="checkbox"  name="text-align" value="left"  checked>
+                        <label name="text-align" class="textIcon textStyle" for="leftAlign">
+                            <span class="hovertext" data-hover="Left Align">
+                                <img src="../icons/text/leftAlign.png">
+                            </span>
+                        </label>
+                        
+                        <!-- center align -->
+                        <input class="textAlignInput textStyleInput" id="centerAlign" type="checkbox"  name="text-align" value="center" >
+                        <label name="text-align" class="textIcon textStyle" for="centerAlign">
+                            <span class="hovertext" data-hover="Center Align">
+                                <img src="../icons/text/centerAlign.png">
+                            </span>
+                        </label>
+                        
+                        <!-- right align -->
+                        <input class="textAlignInput textStyleInput" id="rightAlign" type="checkbox"  name="text-align" value="right" >
+                        <label name="text-align" class="textIcon textStyle" for="rightAlign">
+                            <span class="hovertext" data-hover="Right Align">
+                                <img src="../icons/text/rightAlign.png">
+                            </span>
+                        </label>
+                        
+                        <!-- justify align -->
+                        <input class="textAlignInput textStyleInput" id="justifyAlign" type="checkbox"  name="text-align" value="justify" >
+                        <label name="text-align" class="textIcon textStyle" for="justifyAlign">
+                            <span class="hovertext" data-hover="Justify Align">
+                                <img src="../icons/text/justifyAlign.png">
+                            </span>
+                        </label>
+                    </div>
+                    
+                    <div class="text-buttons">
+                        <!-- overflow text -->
+                        <input class="textStyleInput" type="checkbox" id="overflowing" >
+                        <label id="overflow-label" class="textIcon" for="overflowing">
+                            <span class="hovertextRight" data-hover="Overflow text">
+                                <img src="../icons/text/overflow.png">
+                            </span>
+                        </label>
                     </div>
                 </div>
     
+                <div class="text-buttons">
+                    <!-- width -->
+                    <label class="dimensionLabel" for="width">Width</label>
+                    <input type="number" class="pixels" id="width" value="0">
+                    <!-- auto-width -->
+                    <input type="checkbox" id="autowidth" class="autoDimension textStyleInput" value="width" checked>
+                    <label class="textIcon" for="autowidth">
+                        <span class="hovertextRight" data-hover="Auto-width">
+                            <img src="../icons/text/automatic.png">
+                        </span>
+                    </label>
+                </div>
+    
+                <div  class="text-buttons">
+                    <!-- height -->
+                    <label class="dimensionLabel" for="height">Height</label>
+                    <input type="number" class="pixels" id="height" value="0">
+                    <!-- auto-height -->
+                    <input type="checkbox" id="autoheight" class="autoDimension textStyleInput" value="height" checked>
+                    <label class="textIcon" for="autoheight">
+                        <span class="hovertextRight" data-hover="Auto-height">
+                            <img src="../icons/text/automatic.png">
+                        </span>
+                    </label>
+                </div>
+                
+                <div class="text-buttons">
+                    <!-- padding -->
+                    <label class="textIcon" for="padding">
+                        <span class="hovertext" data-hover="Padding">
+                            <img src="../icons/text/padding.png">
+                        </span>
+                    </label>
+                    <input type="number" class="pixels" id="padding" value="0">
+                    
+                    <!-- border radius -->
+                    <label class="textIcon" for="border-radius">
+                        <span class="hovertextRight" data-hover="Border Radius">
+                            <img src="../icons/text/border-radius.png">
+                        </span>
+                    </label>
+                    <input type="number" class="pixels" id="border-radius" value="0">
+                </div>
+    
+                <div class="text-buttons">
+                    <!-- text editing area -->
+                    <textarea name="text" id="text" rows="5" placeholder="Edit text here"></textarea>
+                </div>
+                
+                <div class="text-buttons">
+                    <label>Layers</label>
+                    <!-- control layers (create, delete) -->
+                    <button class="controlLayers textIcon" id="new">+</button>
+                    <button class="controlLayers textIcon" id="delete">x</button>
+                </div>
+                
+                <!-- layers list -->
+                <div id="layersListContainer">
+                    <!-- sortable layers -->
+                    <ol id="layersList">
+                        <li class="non_textLayer">
+                            <img src="../icons/text/dots.png">
+                            Canvas
+                        </li>
+                    </ol>
+                    <!-- non-sortable layers -->
+                    <p class="fixed_layer non_textLayer">Image</p>
+                </div>
+            </section>
+            <!--Ending of TEXT Editor-->
         </section>
-        <!--Ending of Image Editor-->
-        
-        <!-- TEXT EDITOR -->
-        <section class="text-board" >
-            <label class="title">Text Editor</label>
-            
-            <div class="text-buttons">
-                <!-- font family -->
-                <span class="hovertext" id="font-family-span" data-hover="Font Family">
-                    <select name="font-family" id="font-family">
-                        <option disabled>Font Family</option>
-                        <optgroup label="Serif">
-                            <option value="Times New Roman">Times New Roman</option>
-                            <option value="Georgia">Georgia</option>
-                            <option value="Garamond">Garamond</option>
-                        </optgroup>
-                        <optgroup label="Sans-serif">
-                            <option value="Arial" selected>Arial</option>
-                            <option value="Verdana">Verdana</option>
-                            <option value="Helvetica">Helvetica</option>
-                        </optgroup>
-                        <optgroup label="Monospace">
-                            <option value="Courier New">Courier New</option>
-                            <option value="Lucida Console">Lucida Console</option>
-                            <option value="Monaco">Monaco</option>
-                        </optgroup>
-                        <optgroup label="Cursive">
-                            <option value="Brush Script MT">Brush Script MT</option>
-                            <option value="Lucida Handwriting">Lucida Handwriting</option>
-                        </optgroup>
-                        <optgroup label="Fantasy">
-                            <option value="Copperplate">Copperplate</option>
-                            <option value="Papyrus">Papyrus</option>
-                        </optgroup>
-                    </select>
-                </span>
-                
-                <!-- font size -->
-                <span class="hovertextRight" id="font-size-span" data-hover="Font Size">
-                    <input type="number" class="pixels" id="font-size" name="font-size" value="16">
-                </span>
-            </div>
 
-            <div  class="text-buttons">
-                <!-- font color -->
-                <label class="textIcon" for="color">
-                    <span class="hovertext" data-hover="Font Color">
-                        <img src="../icons/text/font-color.png">
-                    </span>
-                </label>
-                <input type="color" class="textStyleInput text-color" id="color" name="color" >
-
-                <!-- background color -->
-                <label class="textIcon" for="background-color">
-                    <span class="hovertext" data-hover="Background Color">
-                        <img src="../icons/text/bg-color.png">
-                    </span>
-                </label>
-                <input type="color" class="textStyleInput text-color" id="background-color" name="background-color">
-
-                <!-- background alpha channel -->
-                <span class="hovertext" data-hover="Background Transparency">
-                    <input type="range" id="background-color-alpha" value="0" min="0" max="255">
-                </span>
-            </div>
-
-            <div class="text-inner-partition">
-                <div class="text-buttons">
-                    <!-- bold -->
-                    <input class="textStyleInput" id="bold" type="checkbox" name='font-weight' value="bold" >
-                    <label class="textIcon textStyle" for="bold">
-                        <span class="hovertext" data-hover="Bold">
-                            <b>B</b>
-                        </span>
-                    </label>
-                    
-                    <!-- italic -->
-                    <input class="textStyleInput" id="italic" type="checkbox" name="font-style" value="italic" >
-                    <label class="textIcon textStyle" for="italic">
-                        <span class="hovertext" data-hover="Italic">
-                            <i>I</i>
-                        </span>
-                    </label>
-                    
-                    <!-- underline -->
-                    <input class="textStyleInput" id="underline" type="checkbox"  name="text-decoration" value="underline" >
-                    <label class="textIcon textStyle" for="underline">
-                        <span class="hovertext" data-hover="Underline">
-                            <u>U</u>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="text-buttons">
-                    <!-- direction ltr -->
-                    <input type="checkbox" name="direction" class="textStyleInput textAlignInput" id="ltr" value="ltr"  checked>
-                    <label class="textIcon textStyle" for="ltr">
-                        <span class="hovertextRight" data-hover="Left To Right">
-                            <img src="../icons/text/ltr.png">
-                        </span>
-                    </label>
-                    
-                    <!-- direction rtl -->
-                    <input type="checkbox" name="direction" class="textStyleInput textAlignInput" id="rtl" value="rtl" >
-                    <label class="textIcon textStyle" for="rtl">
-                        <span class="hovertextRight" data-hover="Right To Left">
-                            <img src="../icons/text/rtl.png">
-                        </span>
-                    </label>
-                </div>
-            </div>
-            
-            <div class="text-inner-partition">
-                <div class="text-buttons">
-                    <!-- left align -->
-                    <input class="textAlignInput textStyleInput" id="leftAlign" type="checkbox"  name="text-align" value="left"  checked>
-                    <label name="text-align" class="textIcon textStyle" for="leftAlign">
-                        <span class="hovertext" data-hover="Left Align">
-                            <img src="../icons/text/leftAlign.png">
-                        </span>
-                    </label>
-                    
-                    <!-- center align -->
-                    <input class="textAlignInput textStyleInput" id="centerAlign" type="checkbox"  name="text-align" value="center" >
-                    <label name="text-align" class="textIcon textStyle" for="centerAlign">
-                        <span class="hovertext" data-hover="Center Align">
-                            <img src="../icons/text/centerAlign.png">
-                        </span>
-                    </label>
-                    
-                    <!-- right align -->
-                    <input class="textAlignInput textStyleInput" id="rightAlign" type="checkbox"  name="text-align" value="right" >
-                    <label name="text-align" class="textIcon textStyle" for="rightAlign">
-                        <span class="hovertext" data-hover="Right Align">
-                            <img src="../icons/text/rightAlign.png">
-                        </span>
-                    </label>
-                    
-                    <!-- justify align -->
-                    <input class="textAlignInput textStyleInput" id="justifyAlign" type="checkbox"  name="text-align" value="justify" >
-                    <label name="text-align" class="textIcon textStyle" for="justifyAlign">
-                        <span class="hovertext" data-hover="Justify Align">
-                            <img src="../icons/text/justifyAlign.png">
-                        </span>
-                    </label>
-                </div>
-                
-                <div class="text-buttons">
-                    <!-- overflow text -->
-                    <input class="textStyleInput" type="checkbox" id="overflowing" >
-                    <label id="overflow-label" class="textIcon" for="overflowing">
-                        <span class="hovertextRight" data-hover="Overflow text">
-                            <img src="../icons/text/overflow.png">
-                        </span>
-                    </label>
-                </div>
-            </div>
-
-            <div class="text-buttons">
-                <!-- width -->
-                <label class="dimensionLabel" for="width">Width</label>
-                <input type="number" class="pixels" id="width" value="0">
-                <!-- auto-width -->
-                <input type="checkbox" id="autowidth" class="autoDimension textStyleInput" value="width" checked>
-                <label class="textIcon" for="autowidth">
-                    <span class="hovertextRight" data-hover="Auto-width">
-                        <img src="../icons/text/automatic.png">
-                    </span>
-                </label>
-            </div>
-
-            <div  class="text-buttons">
-                <!-- height -->
-                <label class="dimensionLabel" for="height">Height</label>
-                <input type="number" class="pixels" id="height" value="0">
-                <!-- auto-height -->
-                <input type="checkbox" id="autoheight" class="autoDimension textStyleInput" value="height" checked>
-                <label class="textIcon" for="autoheight">
-                    <span class="hovertextRight" data-hover="Auto-height">
-                        <img src="../icons/text/automatic.png">
-                    </span>
-                </label>
-            </div>
-            
-            <div class="text-buttons">
-                <!-- padding -->
-                <label class="textIcon" for="padding">
-                    <span class="hovertext" data-hover="Padding">
-                        <img src="../icons/text/padding.png">
-                    </span>
-                </label>
-                <input type="number" class="pixels" id="padding" value="0">
-                
-                <!-- border radius -->
-                <label class="textIcon" for="border-radius">
-                    <span class="hovertextRight" data-hover="Border Radius">
-                        <img src="../icons/text/border-radius.png">
-                    </span>
-                </label>
-                <input type="number" class="pixels" id="border-radius" value="0">
-            </div>
-
-            <div class="text-buttons">
-                <!-- text editing area -->
-                <textarea name="text" id="text" rows="5" placeholder="Edit text here"></textarea>
-            </div>
-            
-            <div class="text-buttons">
-                <label>Layers</label>
-                <!-- control layers (create, delete) -->
-                <button class="controlLayers textIcon" id="new">+</button>
-                <button class="controlLayers textIcon" id="delete">x</button>
-            </div>
-            
-            <!-- layers list -->
-            <div id="layersListContainer">
-                <!-- sortable layers -->
-                <ol id="layersList">
-                    <li class="non_textLayer">
-                        <img src="../icons/text/dots.png">
-                        Canvas
-                    </li>
-                </ol>
-                <!-- non-sortable layers -->
-                <p class="fixed_layer non_textLayer">Image</p>
-            </div>
-        </section>
-        <!--Ending of TEXT Editor-->
         
         
         <section class="main-board">
