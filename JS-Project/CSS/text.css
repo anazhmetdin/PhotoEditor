@@ -49,7 +49,7 @@
     outline-offset: 5px;
 }
 
-.textStyle {
+.textIcon {
     user-select: none;
     border-radius: 0.2rem;
     width: 1.6rem;
@@ -63,30 +63,30 @@
     border: 1px solid #aaa;
 }
 
-.textStyle u, .textStyle b, .textStyle i {
+.textIcon u, .textIcon b, .textIcon i {
     line-height: 0.3rem;
 }
 
-.textStyle img {
+.textIcon img {
     height: 100%;
 }
 
-.textStyle:hover {
+.textIcon:hover {
     background: #e8e6e6;
 }
 
-.textStyle:active {
+.textIcon:active {
     background-color: #b1b1b9;
     border-color: #484851;
 }
 
-.textStyleInput:checked + .textStyle, .active_layer {
+.textStyleInput:checked + .textIcon, .active_layer {
     color:#fff;
     background: #5372f0;
     border-color: #5372f0;
 }
 
-.textStyleInput:checked + .textStyle img {
+.textStyleInput:checked + .textIcon img {
     filter: invert();
 }
 
@@ -169,7 +169,7 @@
     visibility: visible;
 }
 
-.textStyle span {
+.textIcon span {
     min-width: 1.6rem;
     width: 1.6rem;
     height: 1.6rem;

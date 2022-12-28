@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="../CSS/Styling.css">
     <link rel="stylesheet" href="../CSS/ImageEditor.css">
     <link rel="stylesheet" href="../CSS/text.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
 
     <!--Add script to all pages-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="../JS/Scripting.js"></script>
     
 </head>
@@ -173,7 +175,7 @@
 
             <div  class="text-buttons">
                 <!-- font color -->
-                <label class="textStyle" for="color">
+                <label class="textIcon" for="color">
                     <span class="hovertext" data-hover="Font Color">
                         <img src="../icons/text/font-color.png">
                     </span>
@@ -181,7 +183,7 @@
                 <input type="color" class="textStyleInput text-color" id="color" name="color" >
 
                 <!-- background color -->
-                <label class="textStyle" for="background-color">
+                <label class="textIcon" for="background-color">
                     <span class="hovertext" data-hover="Background Color">
                         <img src="../icons/text/bg-color.png">
                     </span>
@@ -198,7 +200,7 @@
                 <div class="text-buttons">
                     <!-- bold -->
                     <input class="textStyleInput" id="bold" type="checkbox" name='font-weight' value="bold" >
-                    <label class="textStyle" for="bold">
+                    <label class="textIcon textStyle" for="bold">
                         <span class="hovertext" data-hover="Bold">
                             <b>B</b>
                         </span>
@@ -206,7 +208,7 @@
                     
                     <!-- italic -->
                     <input class="textStyleInput" id="italic" type="checkbox" name="font-style" value="italic" >
-                    <label class="textStyle" for="italic">
+                    <label class="textIcon textStyle" for="italic">
                         <span class="hovertext" data-hover="Italic">
                             <i>I</i>
                         </span>
@@ -214,7 +216,7 @@
                     
                     <!-- underline -->
                     <input class="textStyleInput" id="underline" type="checkbox"  name="text-decoration" value="underline" >
-                    <label class="textStyle" for="underline">
+                    <label class="textIcon textStyle" for="underline">
                         <span class="hovertext" data-hover="Underline">
                             <u>U</u>
                         </span>
@@ -224,7 +226,7 @@
                 <div class="text-buttons">
                     <!-- direction ltr -->
                     <input type="checkbox" name="direction" class="textStyleInput textAlignInput" id="ltr" value="ltr"  checked>
-                    <label class="textStyle" for="ltr">
+                    <label class="textIcon textStyle" for="ltr">
                         <span class="hovertextRight" data-hover="Left To Right">
                             <img src="../icons/text/ltr.png">
                         </span>
@@ -232,7 +234,7 @@
                     
                     <!-- direction rtl -->
                     <input type="checkbox" name="direction" class="textStyleInput textAlignInput" id="rtl" value="rtl" >
-                    <label class="directionInput textStyle" for="rtl">
+                    <label class="textIcon textStyle" for="rtl">
                         <span class="hovertextRight" data-hover="Right To Left">
                             <img src="../icons/text/rtl.png">
                         </span>
@@ -244,7 +246,7 @@
                 <div class="text-buttons">
                     <!-- left align -->
                     <input class="textAlignInput textStyleInput" id="leftAlign" type="checkbox"  name="text-align" value="left"  checked>
-                    <label name="text-align" class="textStyle" for="leftAlign">
+                    <label name="text-align" class="textIcon textStyle" for="leftAlign">
                         <span class="hovertext" data-hover="Left Align">
                             <img src="../icons/text/leftAlign.png">
                         </span>
@@ -252,7 +254,7 @@
                     
                     <!-- center align -->
                     <input class="textAlignInput textStyleInput" id="centerAlign" type="checkbox"  name="text-align" value="center" >
-                    <label name="text-align" class="textStyle" for="centerAlign">
+                    <label name="text-align" class="textIcon textStyle" for="centerAlign">
                         <span class="hovertext" data-hover="Center Align">
                             <img src="../icons/text/centerAlign.png">
                         </span>
@@ -260,7 +262,7 @@
                     
                     <!-- right align -->
                     <input class="textAlignInput textStyleInput" id="rightAlign" type="checkbox"  name="text-align" value="right" >
-                    <label name="text-align" class="textStyle" for="rightAlign">
+                    <label name="text-align" class="textIcon textStyle" for="rightAlign">
                         <span class="hovertext" data-hover="Right Align">
                             <img src="../icons/text/rightAlign.png">
                         </span>
@@ -268,7 +270,7 @@
                     
                     <!-- justify align -->
                     <input class="textAlignInput textStyleInput" id="justifyAlign" type="checkbox"  name="text-align" value="justify" >
-                    <label name="text-align" class="textStyle" for="justifyAlign">
+                    <label name="text-align" class="textIcon textStyle" for="justifyAlign">
                         <span class="hovertext" data-hover="Justify Align">
                             <img src="../icons/text/justifyAlign.png">
                         </span>
@@ -278,7 +280,7 @@
                 <div class="text-buttons">
                     <!-- overflow text -->
                     <input class="textStyleInput" type="checkbox" id="overflowing" >
-                    <label id="overflow-label" class="textStyle" for="overflowing">
+                    <label id="overflow-label" class="textIcon" for="overflowing">
                         <span class="hovertextRight" data-hover="Overflow text">
                             <img src="../icons/text/overflow.png">
                         </span>
@@ -292,7 +294,7 @@
                 <input type="number" class="pixels" id="width" value="0">
                 <!-- auto-width -->
                 <input type="checkbox" id="autowidth" class="autoDimension textStyleInput" value="width">
-                <label class="textStyle" for="autowidth">
+                <label class="textIcon" for="autowidth">
                     <span class="hovertextRight" data-hover="Auto-width">
                         <img src="../icons/text/automatic.png">
                     </span>
@@ -305,7 +307,7 @@
                 <input type="number" class="pixels" id="height" value="0">
                 <!-- auto-height -->
                 <input type="checkbox" id="autoheight" class="autoDimension textStyleInput" value="height">
-                <label class="textStyle" for="autoheight">
+                <label class="textIcon" for="autoheight">
                     <span class="hovertextRight" data-hover="Auto-height">
                         <img src="../icons/text/automatic.png">
                     </span>
@@ -314,7 +316,7 @@
             
             <div class="text-buttons">
                 <!-- padding -->
-                <label class="textStyle" for="padding">
+                <label class="textIcon" for="padding">
                     <span class="hovertext" data-hover="Padding">
                         <img src="../icons/text/padding.png">
                     </span>
@@ -322,7 +324,7 @@
                 <input type="number" class="pixels" id="padding" value="0">
                 
                 <!-- border radius -->
-                <label class="textStyle" for="border-radius">
+                <label class="textIcon" for="border-radius">
                     <span class="hovertextRight" data-hover="Border Radius">
                         <img src="../icons/text/border-radius.png">
                     </span>
@@ -338,8 +340,8 @@
             <div class="text-buttons">
                 <label>Layers</label>
                 <!-- control layers (create, delete) -->
-                <button class="controlLayers textStyle" id="new">+</button>
-                <button class="controlLayers textStyle" id="delete">x</button>
+                <button class="controlLayers textIcon" id="new">+</button>
+                <button class="controlLayers textIcon" id="delete">x</button>
             </div>
             
             <!-- layers list -->
@@ -355,7 +357,7 @@
                 <p class="fixed_layer non_textLayer">Image</p>
             </div>
         </section>
-        <!--Ending of Image Editor-->
+        <!--Ending of TEXT Editor-->
         
         <section class="main-board">
             <div id="layers">
@@ -365,6 +367,7 @@
         </section>
     </div>
     <script src="../JS/ImageEditor.js"></script>
+    <script src="../JS/TextEditor.js"></script>
 
 </body>
 </html>
