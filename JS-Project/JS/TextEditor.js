@@ -338,16 +338,27 @@ $(function() {
         $('#autowidth').prop('checked', autoWidth[selectedText.attr('id')]);
         $('#autoheight').prop('checked', autoHeight[selectedText.attr('id')]);
     }
+
+    // function to delete text
+    function deleteText (text) {
+        getSelectedLayer(text.attr('id')).remove();
+        text.remove();
+
+        autoHeight[text.attr('id')] = undefined;
+        autoWidth[text.attr('id')] = undefined;
+    }
+
+    $('#delete').on('deleteAll', function() {
+        $('.text').map(function(elelemnt) {
+            deleteText($(elelemnt));
+        });
+    });
     
     // delete the selected text and its layer
     $('#delete').click(function (){
         if (!!selectedText) {
-            getSelectedLayer().remove();
-            selectedText.remove();
+            deleteText(selectedText);
             selectedText = null;
-
-            autoHeight[selectedText.attr('id')] = undefined;
-            autoWidth[selectedText.attr('id')] = undefined;
         }
     });
     
@@ -495,8 +506,10 @@ $(function() {
 
     function setWidthHeight() {
         // update width and height
-        $('#width').val(Number.parseFloat(selectedText.css('width')));
-        $('#height').val(Number.parseFloat(selectedText.css('height')));
+        if (!!selectedText) {
+            $('#width').val(Number.parseFloat(selectedText.css('width')));
+            $('#height').val(Number.parseFloat(selectedText.css('height')));
+        }
     }
     
     // make layers list sortable
