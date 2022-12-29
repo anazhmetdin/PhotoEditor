@@ -234,6 +234,15 @@ section{
     border-right: 0;
 }
 
+
+.buttonsx .Menu{
+    color: #6C757D;
+    border: 1px solid #6C757D;
+    transition: all 0.3s ease;
+    padding: 0.2rem;
+    width: 10rem;
+} 
+
 .Menu:hover, input[type=radio]:checked + label.Menu{
     color: #fff;
     background: #6C757D;
@@ -292,14 +301,6 @@ section{
     cursor: pointer;
    
 }
-
- .buttonsx .Menu{
-    color: #6C757D;
-    border: 1px solid #6C757D;
-    transition: all 0.3s ease;
-    padding: 0.2rem;
-    width: 10rem;
-} 
 
  .custm_align{
     display: flex;
