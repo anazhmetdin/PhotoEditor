@@ -22,6 +22,9 @@ rotate_options = $(".rotate button");
 filter_slider = $(".slider input");
 
 var loadimage = function() {
+    // reset layers width to load image with the new max size possible
+    layers.css({'width': '100%', 'height': '100%'});
+
     var file = input_file.files[0]; // getting user selected file
     if(!file) return; // return if user hasn't selected file
     previewImg.src = URL.createObjectURL(file); // passing file url as preview img src
