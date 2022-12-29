@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
 
     <!--Add script to all pages-->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <script src="../JS/Scripting.js"></script>
@@ -376,7 +377,7 @@
                 <input type="file" class="file-input" accept="image/*" hidden> 
                 <button class="choose-img Menu">Upload Image</button>
                 <button class="Menu">New Canvas</button>
-                <button class="Menu">Save</button>
+                <button class="Menu" id="save">Save</button>
             </div>
         </section>
         <!--Ending of Main Board-->
@@ -385,6 +386,6 @@
     <script src="../JS/paint.js"></script>
     <script src="../JS/ImageEditor.js"></script>
     <script src="../JS/TextEditor.js"></script>
-
+    <script src="../JS/saveImage.js"></script>
 </body>
 </html>
