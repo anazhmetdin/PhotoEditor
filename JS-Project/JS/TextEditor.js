@@ -64,6 +64,10 @@ $(function() {
         // set the new added element as the selected text
         // activate the corresponding layer
         activateTextAndLayer(newText, textLayer);
+
+        // set z-index of new text
+        var newIndex = layersList.children().length - layersList.index() + 1;
+        selectedText.css('z-index', newIndex);
       
         // update width and height controller when text size changes
         resizeObserver.observe(selectedText[0]);
