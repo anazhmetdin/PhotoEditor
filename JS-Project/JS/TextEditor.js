@@ -18,6 +18,7 @@ $(function() {
     
     // create new text object when button is clicked
     $('#new').click(function() {
+        if (Number.parseInt(layers.css('width')) === 0) {return;}
         textsCount++;
     
         // layer name
@@ -41,7 +42,7 @@ $(function() {
             ${
                 !$('#overflowing').prop('checked') ?
                     
-                `white-space: break-spaces;
+                `white-space: inherit;
                 word-break: break-all;` :
     
                  ""
@@ -440,7 +441,7 @@ $(function() {
         // if not overflowing
         if (!this.checked) {
             // make selected text wrapped
-            selectedText.css({'white-space': 'break-spaces', 'word-break': 'break-all'});
+            selectedText.css({'white-space': 'inherit', 'word-break': 'break-all'});
             limitTextToBox();
         } else {
             // make text not wrapable
@@ -469,7 +470,7 @@ $(function() {
     function isOverflowing() {
         if (!!! selectedText) { return; }
     
-        return selectedText.css('white-space') != 'break-spaces'
+        return selectedText.css('white-space') != 'inherit'
     }
     
     // text-align and direction
