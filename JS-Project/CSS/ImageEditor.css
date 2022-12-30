@@ -128,3 +128,42 @@
     border:1px solid #5372f0;
 
 }
+form {
+    
+    font-family: Arial, sans-serif;
+    border: 5px solid #2b84ff;
+    position: absolute;
+    top:200px;
+    left:600px;
+    width: 300px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px #ccc; 
+    border-radius: 10px;
+    }
+input[type="number"] {
+          background-color: #fffffe;
+
+    width: 90%;
+    padding: 6px 3px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid rgb(184, 178, 178);
+    box-sizing: border-box;
+    opacity: 0.8;
+    border-radius: 10px;
+
+}
+#create_btn{
+    background-color: #2b84ff;
+    color: white;
+    padding: 14px 0;
+    margin: 10px 0;
+    border: none;
+    cursor: grabbing;
+    width: 100%;
+    border-radius: 10px;
+}
+.opactiy_body{
+    opacity: 0.9;
+}
