@@ -213,7 +213,9 @@ section{
 .Menu-board{
     min-width: 210px;
     width: fit-content;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
     position: relative;
     flex: 1;
 }
@@ -233,6 +235,15 @@ section{
 .buttons .Menu:last-child {
     border-right: 0;
 }
+
+
+.buttonsx .Menu{
+    color: #6C757D;
+    border: 1px solid #6C757D;
+    transition: all 0.3s ease;
+    padding: 0.2rem;
+    width: 10rem;
+} 
 
 .Menu:hover, input[type=radio]:checked + label.Menu{
     color: #fff;
@@ -254,8 +265,6 @@ section{
 .text-board{
     width: 210px;
     padding: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .text-board .row{
@@ -293,14 +302,6 @@ section{
    
 }
 
- .buttonsx .Menu{
-    color: #6C757D;
-    border: 1px solid #6C757D;
-    transition: all 0.3s ease;
-    padding: 0.2rem;
-    width: 10rem;
-} 
-
  .custm_align{
     display: flex;
     justify-content: center;
@@ -320,4 +321,5 @@ section{
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    min-width: 210px;
 }

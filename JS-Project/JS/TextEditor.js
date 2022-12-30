@@ -64,6 +64,10 @@ $(function() {
         // set the new added element as the selected text
         // activate the corresponding layer
         activateTextAndLayer(newText, textLayer);
+
+        // set z-index of new text
+        var newIndex = layersList.children().length - layersList.index() + 1;
+        selectedText.css('z-index', newIndex);
       
         // update width and height controller when text size changes
         resizeObserver.observe(selectedText[0]);
@@ -334,16 +338,31 @@ $(function() {
         $('#autowidth').prop('checked', autoWidth[selectedText.attr('id')]);
         $('#autoheight').prop('checked', autoHeight[selectedText.attr('id')]);
     }
+
+    // function to delete text
+    function deleteText (text) {
+        // remove the corresponding layer element
+        getSelectedLayer(text.attr('id')).remove();
+        // remove the text element
+        text.remove();
+        // erase text entries
+        autoHeight[text.attr('id')] = undefined;
+        autoWidth[text.attr('id')] = undefined;
+    }
+
+    // custom evant handler to delete all text elements
+    $('#delete').on('deleteAll', function() {
+        // loop over text elements and delete them
+        $('.text').map(function(index, elelemnt) {
+            deleteText($(elelemnt));
+        });
+    });
     
     // delete the selected text and its layer
     $('#delete').click(function (){
         if (!!selectedText) {
-            getSelectedLayer().remove();
-            selectedText.remove();
+            deleteText(selectedText);
             selectedText = null;
-
-            autoHeight[selectedText.attr('id')] = undefined;
-            autoWidth[selectedText.attr('id')] = undefined;
         }
     });
     
@@ -491,8 +510,10 @@ $(function() {
 
     function setWidthHeight() {
         // update width and height
-        $('#width').val(Number.parseFloat(selectedText.css('width')));
-        $('#height').val(Number.parseFloat(selectedText.css('height')));
+        if (!!selectedText) {
+            $('#width').val(Number.parseFloat(selectedText.css('width')));
+            $('#height').val(Number.parseFloat(selectedText.css('height')));
+        }
     }
     
     // make layers list sortable

@@ -39,6 +39,10 @@ var loadimage = function() {
         // update parent size
         layers.css('width', previewImg.width);
         layers.css('height', previewImg.height);
+
+        canvas[0].width = canvas[0].offsetWidth;
+        canvas[0].height = canvas[0].offsetHeight;
+
     });
 
     //previewImg.width="300px";
