@@ -341,15 +341,19 @@ $(function() {
 
     // function to delete text
     function deleteText (text) {
+        // remove the corresponding layer element
         getSelectedLayer(text.attr('id')).remove();
+        // remove the text element
         text.remove();
-
+        // erase text entries
         autoHeight[text.attr('id')] = undefined;
         autoWidth[text.attr('id')] = undefined;
     }
 
+    // custom evant handler to delete all text elements
     $('#delete').on('deleteAll', function() {
-        $('.text').map(function(elelemnt) {
+        // loop over text elements and delete them
+        $('.text').map(function(index, elelemnt) {
             deleteText($(elelemnt));
         });
     });
