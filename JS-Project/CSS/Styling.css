@@ -213,7 +213,9 @@ section{
 .Menu-board{
     min-width: 210px;
     width: fit-content;
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
     position: relative;
     flex: 1;
 }
@@ -263,8 +265,6 @@ section{
 .text-board{
     width: 210px;
     padding: 15px;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .text-board .row{
