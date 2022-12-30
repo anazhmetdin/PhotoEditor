@@ -23,16 +23,20 @@ filter_slider = $(".slider input");
 
 var loadimage = function() {
     $("#preview-img").css("height","").css("width","");
+    $( "#delete" ).trigger( "deleteAll");
+    var context = canvas[0].getContext('2d');
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.beginPath();
 
     // reset layers width to load image with the new max size possible
     layers.css({'width': '100%', 'height': '100%'});
     canvas.css({'width': '100%', 'height': '100%'});
+
     var file = input_file.files[0]; // getting user selected file
     if(!file) return; // return if user hasn't selected file
+    
     previewImg.src = URL.createObjectURL(file); // passing file url as preview img src
 
-    console.log("URL" + URL.createObjectURL(file));
-    console.log("img" +  previewImg.src);
 
     // observe image size change -> image is loaded, then styled
     const imageResizeObserver = new ResizeObserver(function() {
@@ -45,14 +49,13 @@ var loadimage = function() {
 
     });
 
-    //previewImg.width="300px";
-    //previewImg.height="100";
     previewImg.addEventListener("load", function(){
 
         document.querySelector(".container").classList.remove("disable");
         // apply observer after image is loaded -> wait for css to be applied
         imageResizeObserver.observe(previewImg);
     });
+    input_file.value = "";
 }
 
 for(var i=0;i<filter_options.length;i++)
