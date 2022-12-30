@@ -375,13 +375,25 @@
             <div id="submitbuttons" class="row buttonsx custm_align">
                 <input type="file" class="file-input" accept="image/*" hidden> 
                 <button class="choose-img Menu">Upload Image</button>
-                <button class="Menu">New Canvas</button>
+                <button id="newConvas_btn" class="Menu">New Canvas</button>
                 <button class="Menu">Save</button>
             </div>
         </section>
         <!--Ending of Main Board-->
 
     </div>
+    <form hidden>
+        <!-- <h2>Create Convas</h2> -->
+        <label>Width</label>
+        <input id="width_" type="number" value="100" min="1" max="5">
+        <label>px</label><br><br>
+        <label>Hieght</label>
+        <input id ="height_" type="number" value="100" min="1" max="5">
+        <label>px</label><br><br>
+        <input id ="create_btn" type="button" value="Create">
+
+    </form>
+
     <script src="../JS/ImageEditor.js"></script>
     <script src="../JS/TextEditor.js"></script>
 
