@@ -9,6 +9,7 @@
     gap: 0.3rem;
     margin-top: 1rem;
     justify-content: center;
+    align-items: center;
 }
 
 #layersListContainer {

@@ -142,11 +142,10 @@ form {
     border-radius: 10px;
     }
 input[type="number"] {
-          background-color: #fffffe;
-
+    background-color: #fffffe;
+    padding: 0.3rem;
     width: 90%;
     padding: 6px 3px;
-    margin: 8px 0;
     display: inline-block;
     border: 2px solid rgb(184, 178, 178);
     box-sizing: border-box;
