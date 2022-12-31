@@ -17,18 +17,38 @@ $('#save').click(function() {
         newCanvas.style.width = canvas.style.width;
         newCanvas.style.height = canvas.style.height;
 
+
+
         const ctx = newCanvas.getContext('2d');
+
+        console.log(flipX)
+        console.log(flipY)
 
         if (image.src != "") {
             // apply filters
             ctx.filter = image.style.filter;
+
+            // Translate canvas from center
+            ctx.translate(newCanvas.width/2, newCanvas.height/2);
+
+            // Rotate 
+            if(rotate !== 0){
+                ctx.rotate(rotate * Math.PI /180)
+            }
+            // Flip Filters
+            ctx.scale(flipY,flipX);
             // transfer image
-            ctx.drawImage(image, 0, 0, newCanvas.width, newCanvas.height);
+            ctx.drawImage(image, -newCanvas.width/2, -newCanvas.height/2, newCanvas.width, newCanvas.height);
+
             // reset filters
             ctx.filter = "none"; 
         }
+        
+        
+
+
         // transfer text and paintings
-        ctx.drawImage(canvas, 0, 0);
+        ctx.drawImage(canvas, -canvas.width/2, -canvas.height/2);
 
         // create link to the new canvas and download it
         var dataURL = newCanvas.toDataURL("image/jpeg", 1.0);

@@ -111,6 +111,7 @@ section{
     color: #4A98F7;
 }
 
+
 #fill-color:checked ~ label{
     color: #4A98F7;
   }  

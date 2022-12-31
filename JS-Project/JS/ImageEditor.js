@@ -8,9 +8,9 @@ var Brightness = 100,
     Contrast = 100,
     sepia = 0;
 
-//When the slide bar move app Filter
+//When the slide bar move update  Filters
 var applyFilter = function () {
-    previewImg.style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
+    layer.style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
 
     canvas.style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
 
@@ -20,7 +20,8 @@ var applyFilter = function () {
 
 input_file = $(".file-input")[0];
 previewImg = $("#preview-img")[0];
-layers = $("#layers");
+layers = $("#layers ");
+layer = $("#layers")[0]
 //canvas = $('canvas');
 choose_img = $(".choose-img");
 filter_options = $(".filter button");
@@ -105,12 +106,19 @@ let updateFilter = function () {
     applyFilter();
 };
 
+
+//Rotate and flip Imaage
 $(".rotate .options button").each(function (idx, elem) {
     elem.addEventListener("click", function () {
-        if (elem.id == "left") rotate += 90;
-        else if (elem.id == "right") rotate -= 90;
+        console.log(elem)
+        if (elem.id == "left") rotate -= 90;
+        else if (elem.id == "right") rotate += 90;
         else if (elem.id == "horizontal") flipX = flipX === 1 ? -1 : 1;
         else flipY = flipY === 1 ? -1 : 1;
+
+
+        // $("#layers").css('width', '300px');
+        // $("#layers").css('height', 'fit-content');
         applyFilter();
     });
 });
