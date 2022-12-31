@@ -10,7 +10,7 @@ const canvas = document.querySelector("canvas"),
     ctx = canvas.getContext("2d");
 
 // global variables with default value
-let prevMouseX,
+var prevMouseX,
     prevMouseY,
     snapshot,
     initWidth,
@@ -32,7 +32,7 @@ function setCanvasBackground() {
 function resizeCanvas(canvas) {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
-    ctx.putImageData(snapshot, 0, 0);
+    if (snapshot !== undefined) ctx.putImageData(snapshot, 0, 0);
 
     // ctx.drawImage(canvas, 0, 0, canvas.width, canvas.height);
     /*
@@ -42,13 +42,13 @@ function resizeCanvas(canvas) {
         */
 }
 
-window.addEventListener("resize", function() {
+window.addEventListener("resize", function () {
     resizeCanvas(canvas);
     //ctx.putImageData(snapshot, 0, 0);
     // ctx.drawImage(base_image, 0, 0, canvas.width, canvas.height);
 });
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     // setting canvas width/height.. offsetwidth/height returns viewable width/height of an element
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
@@ -67,33 +67,33 @@ function drawRect(e) {
     ctx.fillRect(e.offsetX, e.offsetY, prevMouseX - e.offsetX, prevMouseY - e.offsetY);
 }
 
-const drawCircle = function(e) {
+function drawCircle(e) {
     ctx.beginPath(); // creating new path to draw circle
     // getting radius for circle according to the mouse pointer
-    let radius = Math.sqrt(
+    var radius = Math.sqrt(
         Math.pow(prevMouseX - e.offsetX, 2) + Math.pow(prevMouseY - e.offsetY, 2)
     );
     ctx.arc(prevMouseX, prevMouseY, radius, 0, 2 * Math.PI); // creating circle according to the mouse pointer
     fillColor.checked ? ctx.fill() : ctx.stroke(); // if fillColor is checked fill circle else draw border circle
-};
+}
 
-const drawLine = function(e) {
+function drawLine(e) {
     // Draw Line
     ctx.beginPath();
     ctx.moveTo(mousedown.x, mousedown.y);
     ctx.lineTo(loc.x, loc.y);
     ctx.stroke();
-};
-const drawTriangle = function(e) {
+}
+function drawTriangle(e) {
     ctx.beginPath(); // creating new path to draw circle
     ctx.moveTo(prevMouseX, prevMouseY); // moving triangle to the mouse pointer
     ctx.lineTo(e.offsetX, e.offsetY); // creating first line according to the mouse pointer
     ctx.lineTo(prevMouseX * 2 - e.offsetX, e.offsetY); // creating bottom line of triangle
     ctx.closePath(); // closing path of a triangle so the third line draw automatically
     fillColor.checked ? ctx.fill() : ctx.stroke(); // if fillColor is checked fill triangle else draw border
-};
+}
 
-const startDraw = function(e) {
+function startDraw(e) {
     if (currentSection !== 1) {
         return;
     }
@@ -106,9 +106,9 @@ const startDraw = function(e) {
     ctx.fillStyle = selectedColor; // passing selectedColor as fill style
     // copying canvas data & passing as snapshot value.. this avoids dragging the image
     snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
-};
+}
 
-const drawing = function(e) {
+function drawing(e) {
     if (!isDrawing || currentSection !== 1) return; // if isDrawing is false return from here
     // console.log(snapshot);
     ctx.putImageData(snapshot, 0, 0); // adding copied canvas data on to this canvas
@@ -132,10 +132,10 @@ const drawing = function(e) {
     } else {
         drawTriangle(e);
     }
-};
+}
 
-toolBtns.forEach(function(btn) {
-    btn.addEventListener("click", function() {
+toolBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
         // adding click event to all tool option
         // removing active class from the previous option and adding on current clicked option
         document.querySelector(".options .active").classList.remove("active");
@@ -144,10 +144,12 @@ toolBtns.forEach(function(btn) {
     });
 });
 
-sizeSlider.addEventListener("change", function(){brushWidth = sizeSlider.value}); // passing slider value as brushSize
+sizeSlider.addEventListener("change", function () {
+    brushWidth = sizeSlider.value;
+}); // passing slider value as brushSize
 
 colorBtns.forEach(function (btn) {
-    btn.addEventListener("click", function() {
+    btn.addEventListener("click", function () {
         // adding click event to all color button
         // removing selected class from the previous option and adding on current clicked option
         document.querySelector(".options .selected").classList.remove("selected");
@@ -157,13 +159,13 @@ colorBtns.forEach(function (btn) {
     });
 });
 
-colorPicker.addEventListener("change", function() {
+colorPicker.addEventListener("change", function () {
     // passing picked color value from color picker to last color btn background
     colorPicker.parentElement.style.background = colorPicker.value;
     colorPicker.parentElement.click();
 });
 
-clearCanvas.addEventListener("click", function() {
+clearCanvas.addEventListener("click", function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // clearing whole canvas
 });
 

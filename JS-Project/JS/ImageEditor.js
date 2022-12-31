@@ -10,7 +10,7 @@ var Brightness = 100,
 
 //When the slide bar move update  Filters
 var applyFilter = function () {
-    layer.style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
+    previewImg.style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
 
     canvas.style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
 
