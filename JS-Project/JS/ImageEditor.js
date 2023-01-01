@@ -11,15 +11,14 @@ var loadedwidth, loadedheight;
 
 //When the slide bar move update  Filters
 var applyFilter = function () {
+    snapshot = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
     layers[0].style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
 
     if (rotate % 90 == 0 && rotate % 180 != 0) {
         if (Number.parseInt(layers.css('width')) > Number.parseInt($('#layers_container').css('height'))) {
            layers.css('width', Number.parseInt($('#layers_container').css('height')));
            layers.css('height', previewImg.getBoundingClientRect().width);
-
-           canvas.width = previewImg.getBoundingClientRect().width;
-           canvas.height = previewImg.getBoundingClientRect().height;
         }
     } else {
         layers.css('width', loadedwidth+'px');
@@ -28,6 +27,12 @@ var applyFilter = function () {
         // canvas.width = loadedwidth;
         // canvas.height = loadedheight;
     }
+    
+    // set width and height of canvas with an image when it loaded
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+
+    ctx.putImageData(snapshot, 0, 0);
 
     texts.css("width", previewImg.getBoundingClientRect().width);
     texts.css("height", previewImg.getBoundingClientRect().height);
@@ -61,8 +66,8 @@ const imageResizeObserver = new ResizeObserver(function () {
     texts.css("height", previewImg.getBoundingClientRect().height);
 
     // set width and height of canvas with an image when it loaded
-    canvas.width = previewImg.getBoundingClientRect().width;
-    canvas.height = previewImg.getBoundingClientRect().height;
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
 
     loadedwidth = previewImg.getBoundingClientRect().width;
     loadedheight = previewImg.getBoundingClientRect().height;
