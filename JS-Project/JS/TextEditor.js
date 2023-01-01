@@ -6,7 +6,7 @@ $(function() {
     var autoWidth = {}, autoHeight = {};
     
     var canvas = $('canvas');
-    var layers = $('#layers');
+    var layers = $('#texts');
     var layersList = $('#layersList');
     var textarea = $('#text');
     
@@ -42,7 +42,7 @@ $(function() {
             ${
                 !$('#overflowing').prop('checked') ?
                     
-                `white-space: inherit;
+                `white-space: break-spaces;
                 word-break: break-all;` :
     
                  ""
@@ -93,7 +93,7 @@ $(function() {
     
     
     // unselect text when canvas or non_text layer is clicked without a text being hovered
-    $('.non_textLayer, #layers').mousedown(function(event) {
+    $('.non_textLayer, #texts').mousedown(function(event) {
         if (!event.target.classList.contains('text')) {
             // get all elemets beneath mouse
             var pointedElements = document.elementsFromPoint(event.clientX, event.clientY);
@@ -192,7 +192,7 @@ $(function() {
         
         // update selectedText position when mouse moves
         $(document).mousemove(function(event) {
-            
+
             selectedText.css('left', event.clientX-xOffset);
             selectedText.css('top', event.clientY-yOffset);
             limitTextToBox();
@@ -441,7 +441,7 @@ $(function() {
         // if not overflowing
         if (!this.checked) {
             // make selected text wrapped
-            selectedText.css({'white-space': 'inherit', 'word-break': 'break-all'});
+            selectedText.css({'white-space': 'break-spaces', 'word-break': 'break-all'});
             limitTextToBox();
         } else {
             // make text not wrapable
@@ -469,8 +469,7 @@ $(function() {
     // get whether the selected text is overflowing or not
     function isOverflowing() {
         if (!!! selectedText) { return; }
-    
-        return selectedText.css('white-space') != 'inherit'
+        return selectedText.css('white-space') != 'break-spaces';
     }
     
     // text-align and direction
@@ -549,4 +548,23 @@ $(function() {
     function getSelectedText(id) {
         return $('#'+transfromID('t', id));
     }
+
+    // $('#texts').mousedown(function(event) {
+    //     var pointedElements = document.elementsFromPoint(event.clientX, event.clientY);
+    //     // search in all targeted elements
+    //     console.log(event.target.id);
+
+    //     pointedElements.map(function(element) {
+    //         if (element.id == event.target.id) {return;}
+    //         console.log(element);
+    //         // create new event with current mouse position
+    //         const e = $.Event('mousedown', {
+    //             'clientX' : event.clientX, 
+    //             'clientY' : event.clientY
+    //         });
+            
+    //         // dispatch event on the selected text
+    //         $(element).trigger(e);
+    //     });
+    // })
 });

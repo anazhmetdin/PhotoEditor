@@ -7,10 +7,30 @@ var Brightness = 100,
     Grayscale = 0,
     Contrast = 100,
     sepia = 0;
+var loadedwidth, loadedheight;
 
 //When the slide bar move update  Filters
 var applyFilter = function () {
     layers[0].style.transform = `rotate(${rotate}deg) scale(${flipY}, ${flipX})`;
+
+    if (rotate % 90 == 0 && rotate % 180 != 0) {
+        if (Number.parseInt(layers.css('width')) > Number.parseInt($('#layers_container').css('height'))) {
+           layers.css('width', Number.parseInt($('#layers_container').css('height')));
+           layers.css('height', previewImg.getBoundingClientRect().width);
+
+           canvas.width = previewImg.getBoundingClientRect().width;
+           canvas.height = previewImg.getBoundingClientRect().height;
+        }
+    } else {
+        layers.css('width', loadedwidth+'px');
+        layers.css('height', loadedheight+'px');
+        
+        // canvas.width = loadedwidth;
+        // canvas.height = loadedheight;
+    }
+
+    texts.css("width", previewImg.getBoundingClientRect().width);
+    texts.css("height", previewImg.getBoundingClientRect().height);
 
     previewImg.style.filter = `brightness(${Brightness}%) saturate(${Saturation}%) invert(${Inversion}%) 
                                 grayscale(${Grayscale}%) sepia(${sepia}%) contrast(${Contrast}%)`;
@@ -19,6 +39,7 @@ var applyFilter = function () {
 input_file = $(".file-input")[0];
 previewImg = $("#preview-img")[0];
 layers = $("#layers ");
+texts  = $('#texts');
 choose_img = $(".choose-img");
 filter_options = $(".filter button");
 filter_name = $(".filter-info .name");
@@ -26,28 +47,46 @@ filter_value = $(".filter-info .value");
 rotate_options = $(".rotate button");
 filter_slider = $(".slider input");
 
+// observe image size change -> image is loaded, then styled
+const imageResizeObserver = new ResizeObserver(function () {
+    if ($(previewImg).attr('src') == '') {return;}
+    
+    layers.css('width', "100%");
+    layers.css('height', "100%");
+     // update parent size
+    layers.css("width", previewImg.getBoundingClientRect().width);
+    layers.css("height", previewImg.getBoundingClientRect().height);
+
+    texts.css("width", previewImg.getBoundingClientRect().width);
+    texts.css("height", previewImg.getBoundingClientRect().height);
+
+    // set width and height of canvas with an image when it loaded
+    canvas.width = previewImg.getBoundingClientRect().width;
+    canvas.height = previewImg.getBoundingClientRect().height;
+
+    loadedwidth = previewImg.getBoundingClientRect().width;
+    loadedheight = previewImg.getBoundingClientRect().height;
+
+    setTimeout(function(){
+        imageResizeObserver.disconnect();
+    }, 100);
+});
+
 var loadimage = function () {
     // reset filters
     $(".Controls .reset-filters").trigger("click");
     // reset layers width to load image with the new max size possible
-    layers.css({ width: "fit-content", height: "fit-content" });
 
+    canvas.style.backgroundColor = '#fff0';
+    
     var file = input_file.files[0]; // getting user selected file
     if (!file) return; // return if user hasn't selected file
     previewImg.src = URL.createObjectURL(file); // passing file url as preview img src
     
     previewImg.addEventListener("load", function () {
         document.querySelector(".container").classList.remove("disable");
-        // update parent size
-        previewImg.style.width = previewImg.getBoundingClientRect().width+'px';
-        previewImg.style.height = previewImg.getBoundingClientRect().height+'px';
-
-        layers.css("width", previewImg.style.width);
-        layers.css("height", previewImg.style.height);
-
-        // set width and height of canvas with an image when it loaded
-        canvas.width = previewImg.getBoundingClientRect().width;
-        canvas.height = previewImg.getBoundingClientRect().height;
+        // apply observer after image is loaded -> wait for css to be applied
+        imageResizeObserver.observe(previewImg);
     });
 };
 

@@ -28,6 +28,10 @@ $(function(){
         $( ".container" ).addClass( "opactiy_body" );
     })
     $("#create_btn").click(function(){
+        
+        layers.css('width', "100%");
+        layers.css('height', "100%");
+
         $("form").hide();
         $( "#delete" ).trigger( "deleteAll");
         var context = canvas[0].getContext('2d');
@@ -39,22 +43,32 @@ $(function(){
         let cal_width = parseInt($("#width_").val());
         let cal_height = parseInt($("#height_").val());
         
-        if(cal_width > 1100 )
+        if(cal_width > $('#layers_container')[0].getBoundingClientRect().width )
         {
-            cal_width = layers[0].width;
+            cal_height = cal_height * $('#layers_container')[0].getBoundingClientRect().width / cal_width;
+            cal_width = $('#layers_container')[0].getBoundingClientRect().width;
+        } else if (cal_height > $('#layers_container')[0].getBoundingClientRect().height) {
+            cal_width  = cal_width * $('#layers_container')[0].getBoundingClientRect().height / cal_height;
+            cal_height = $('#layers_container')[0].getBoundingClientRect().height;
         }
         
-        $("#preview-img").attr("src","../images/white.PNG");
+        $("#preview-img").attr("src","");
 
-        $("#preview-img").css("height",`${cal_height}`).css("width",`${cal_width}`);
+        //$("#preview-img").css("height",`${cal_height}`).css("width",`${cal_width}`);
         
         canvas[0].width = cal_width;
         canvas[0].height = cal_height;
 
-        canvas.css('width',cal_width);
-        canvas.css('height', cal_height);
-        layers.css('width',cal_width);
-        layers.css('height', cal_height);
+        canvas.css('width',cal_width+'px');
+        canvas.css('height', cal_height+'px');
+        
+        layers.css('width',cal_width+'px');
+        layers.css('height', cal_height+'px');
+        
+        canvas[0].style.backgroundColor = '#fff';
+
+        texts.css("width", previewImg.getBoundingClientRect().width);
+        texts.css("height", previewImg.getBoundingClientRect().height);
 
     })
 
